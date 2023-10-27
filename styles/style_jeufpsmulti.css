@@ -1,0 +1,253 @@
+
+body{
+  margin: 0;
+}
+*{
+  font-family: Arial, Helvetica, sans-serif;
+}
+.background{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.image{
+  width: 100%;
+  background-image: url('../img/fond.png');
+  background-size: cover;
+  background-attachment: fixed;
+  height: 500px;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+.image-exemple{
+  width: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 600px;
+  background-position: center center;
+  
+}
+.exemple-1{
+  background-image: url('../img/photo-exemple-1.png');
+}
+.exemple-2{
+  background-image: url('../img/photo-exemple-2.png');
+}
+.titre{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: center;
+  align-items: center;
+}
+.titre .lettre{
+  color: rgb(88, 88, 88);
+  font-weight: 700;
+  font-size: 75px;
+  background-image: linear-gradient(90deg, #4f4f4f 0%, #262626 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  text-shadow: #ffffff3c 0 0 10px;
+  text-align: center;
+  transition: all .1s;
+}
+.titre .lettre:hover{
+  transform: translate(0,-10px);
+}
+.espace{
+  width: 20px;
+}
+.mot{
+  display: flex;
+  margin-right: 20px;
+}
+
+
+.button-download {
+  display: inline-block;
+  background-color: #707070;
+
+  border-radius: 10px;
+  border: 3px solid #cccccc;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 300px;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin: 5px;
+  box-shadow: 0 0 20px #787878;
+}
+.button-download span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.3s;
+}
+.button-download span:after {
+  content: "\2913";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.3s;
+}
+.button-download:hover {
+  background-color: #60a2b0;
+  box-shadow: 0 0 20px #7c96a1;
+}
+.button-download:hover span {
+  padding-right: 25px;
+}
+.button-download:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.explication{    
+  background-color: #333333;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: space-around;
+  align-items: center;
+  /* bottom: 0; */
+  min-height: 100%;
+  justify-content: space-around;
+  padding-top: 50px;
+}
+.articles{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-around;
+  align-items: center;
+  /* bottom: 0; */
+  min-height: 100%;
+  justify-content: space-evenly;
+  column-gap: 10px;
+  row-gap: 50px;
+  padding-bottom: 50px;
+}
+.text-article{
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  line-height: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.titre-article{
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+article{
+  transition: all 0.2s;
+  min-width: 300px;
+  max-width: 450px;
+  min-height: 300px;
+  background-color: #4f4f4f;
+  border-radius: 20px;
+  box-shadow: 4px 3px 10px 3px #262626;
+  padding: 40px;
+
+}
+article:hover{
+  transform: translate(-5px,-5px);
+  box-shadow: 9px 8px 10px 3px #262626;
+}
+.info{
+  color: rgb(94, 97, 101);
+  font-size: 54px;
+  font-weight: 600;
+  padding-right: 35%;
+  margin-bottom: 100px;
+  text-decoration: underline;
+}
+.contact{    
+  padding-top: 30px;
+  background-color: #333333;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.insta{
+  transition: all 0.2s ease;
+}
+.insta:hover{
+  transform: scale(1.02);
+  filter: drop-shadow(0 0 10px #ff00a276);
+}
+svg path{
+  width: 300px;
+  fill: #707070;
+  transition: all .3s;
+}
+.insta:hover svg path{
+  fill: #ff00a2;
+}
+.twitter{
+  transition: all 0.2s ease;
+}
+.twitter:hover{
+  transform: scale(1.02);
+  filter: drop-shadow(0 0 10px #00c3ff76);
+}
+.twitter:hover svg path{
+  fill: #00c3ff;
+}
+footer{
+  background-color: #333333;
+  width: 100%;
+  display: flex;
+  padding: 20px 0;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+  color:#707070;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+@media only screen and (max-width: 600px) {
+  .text-article{
+    font-size: 28px;
+  }
+  .titre-article{
+    font-size: 34px;
+  }
+  .articles{
+    column-gap: 10px;
+  }
+
+}
+
+@media only screen and (max-width: 800px) {
+  article{
+    width: 80%;
+  }
+
+}
+
