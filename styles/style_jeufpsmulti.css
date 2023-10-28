@@ -178,6 +178,7 @@ article:hover{
   padding-right: 35%;
   margin-bottom: 100px;
   text-decoration: underline;
+  text-shadow: #222222 0 0 5px;
 }
 .contact{    
   padding-top: 30px;
@@ -192,6 +193,7 @@ article:hover{
 }
 .insta{
   transition: all 0.2s ease;
+  filter: drop-shadow(0 0 10px #222222);
 }
 .insta:hover{
   transform: scale(1.02);
@@ -207,13 +209,14 @@ svg path{
 }
 .twitter{
   transition: all 0.2s ease;
+  filter: drop-shadow(0 0 10px #222222);
 }
 .twitter:hover{
   transform: scale(1.02);
-  filter: drop-shadow(0 0 10px #00c3ff76);
+  filter: drop-shadow(0 0 10px #000000f0);
 }
 .twitter:hover svg path{
-  fill: #00c3ff;
+  fill: #000000;
 }
 footer{
   background-color: #333333;
@@ -250,4 +253,3 @@ footer{
   }
 
 }
-
