@@ -19,10 +19,10 @@ body{
 .image{
   width: 100%;
   background-image: url('../img/fond.png');
-  background-size: cover;
+  background-size: 120%;
   background-attachment: fixed;
   height: 500px;
-  background-position: center center;
+  background-position: center -380px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,19 +52,22 @@ body{
   align-items: center;
 }
 .titre .lettre{
-  color: rgb(88, 88, 88);
+  cursor:default;
+  color: transparent;
   font-weight: 700;
   font-size: 75px;
-  background-image: linear-gradient(90deg, #4f4f4f 0%, #262626 100%);
+  background-image: linear-gradient(180deg, #4f4f4f 0%, #262626 100%);
+  text-shadow: #ffffff3c 2px 2px 2px;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; 
-  text-shadow: #ffffff3c 0 0 10px;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-align: center;
   transition: all .1s;
-}
+}/*
 .titre .lettre:hover{
   transform: translate(0,-10px);
-}
+}*/
 .espace{
   width: 20px;
 }
@@ -162,6 +165,7 @@ body{
 
 }
 article{
+  cursor: default;
   transition: all 0.2s;
   min-width: 300px;
   max-width: 450px;
@@ -177,14 +181,51 @@ article:hover{
   box-shadow: 9px 8px 10px 3px #262626;
 }
 .info{
+  cursor: default;
+  display: block;
+  position: relative;
+  padding: 0.2em 0;
   color: rgb(94, 97, 101);
   font-size: 54px;
   font-weight: 600;
   padding-right: 35%;
   margin-bottom: 100px;
-  text-decoration: underline;
   text-shadow: #222222 0 0 5px;
 }
+.info::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: rgb(94, 97, 101);
+  box-shadow: #222222 0 0 5px;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+.info:hover::after,
+.info:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+/* Slide in */
+.info {
+  overflow: hidden;
+}
+
+.info::after {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+}
+
+.info:hover::after,
+.info:focus::after{
+  transform: translate3d(-80%, 0, 0);
+}
+
+
+
 .contact{    
   padding-top: 30px;
   background-color: #333333;
@@ -224,7 +265,8 @@ svg path{
   fill: #000000;
 }
 footer{
-  background-color: #333333;
+  cursor: default;
+  background-color: #2e2e2e;
   width: 100%;
   display: flex;
   padding: 20px 0;
@@ -237,6 +279,8 @@ footer{
   font-size: 25px;
   font-weight: 600;
   letter-spacing: 2px;
+  z-index: 1;
+  box-shadow: 0 0 10px 2px #2e2e2e;
 }
 
 @media only screen and (max-width: 600px) {

@@ -53,7 +53,7 @@
             <button class="button-download-disabled" disabled>
                 <span>indisponible sur téléphone</span>
             </button>
-            <span style="color: white;font-size: large;">version 0.0.47</span>
+            <span style="color: white;font-size: large;cursor:default;">version 0.0.47</span>
         </div>
         <div class="explication">
             <div class="info">Quelques infos:</div>
@@ -94,5 +94,34 @@
             voila voila
         </footer>
     </div>
+    <script>
+        const diag = Math.sqrt(window.innerWidth*window.innerWidth + window.innerHeight*window.innerHeight);
+        let elementsArray = document.getElementsByClassName("lettre");
+        const clamp = (number, min, max) =>
+            Math.max(min, Math.min(number, max));
+
+        document.addEventListener('mousemove', (e) => {
+            document.getElementsByClassName('image')[0].style.backgroundPositionY = e.clientY/20 - window.innerHeight/20 + "px" ;
+            for (i = 0; i < elementsArray.length; i++) {
+                const box = elementsArray[i].getBoundingClientRect()
+                if(elementsArray[i].style.translate == "0px"){
+                    elementsArray[i].style.translate = "";
+                }
+                if (elementsArray[i].style.translate != ""){
+                    let xDistance = Math.abs(e.clientX - (((box.left + box.right) / 2)-parseInt(elementsArray[i].style.translate.replace("px","").split(" ")[0])));
+                    let yDistance = Math.abs(e.clientY - (((box.top + box.bottom) / 2)-parseInt(elementsArray[i].style.translate.replace("px","").split(" ")[1])));
+                    let invertDist = clamp(1-(Math.sqrt(xDistance*xDistance + yDistance*yDistance)/250),0,1);
+                    elementsArray[i].style.translate = "0px -" +(invertDist*50).toString()+ "px";
+                }else{
+                    let xDistance = Math.abs(e.clientX - (((box.left + box.right) / 2)));
+                    let yDistance = Math.abs(e.clientY - (((box.top + box.bottom) / 2)));
+                    let invertDist = clamp(1-(Math.sqrt(xDistance*xDistance + yDistance*yDistance)/250),0,1);
+                    elementsArray[i].style.translate = "0px -" +(invertDist*50).toString()+ "px";
+                }
+            } 
+        });
+        
+
+    </script>
 </body>
 </html>
