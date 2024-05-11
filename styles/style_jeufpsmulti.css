@@ -38,10 +38,10 @@ body{
   
 }
 .exemple-1{
-  background-image: url('../img/photo-exemple-1.png');
+  background-image: url('../img/photo-exemple-3.png');
 }
 .exemple-2{
-  background-image: url('../img/photo-exemple-2.png');
+  background-image: url('../img/photo-exemple-4.png');
 }
 .titre{
   display: flex;
