@@ -1,7 +1,17 @@
-
 body{
   margin: 0;
 }
+
+/*::-moz-selection { 
+  color: white;
+  background: #4f4f4f;
+}
+
+::selection {
+  color: white;
+  background: #4f4f4f;
+}*/
+
 *{
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -14,6 +24,10 @@ body{
 }
 .button-download-disabled{
   display: none;
+}
+
+a{
+	color:#00a2e8;
 }
 
 .image{
@@ -111,7 +125,7 @@ body{
   transition: 0.3s;
 }
 .button-download:hover {
-  background-color: #60a2b0;
+  background-color: rgba(100, 152, 225);
   box-shadow: 0 0 20px #7c96a1;
 }
 .button-download:hover span {
@@ -271,6 +285,12 @@ body{
   margin-bottom: 100px;
   text-shadow: #222222 0 0 5px;
 }
+
+.info::selection{
+	color:#333333;
+    background-color: rgb(94, 97, 101);
+}
+
 .info::after {
   content: '';
   position: absolute;
