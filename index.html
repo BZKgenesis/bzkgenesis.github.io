@@ -261,7 +261,7 @@
             Math.max(min, Math.min(number, max));
 
         document.addEventListener('mousemove', (e) => {
-            document.getElementsByClassName('image')[0].style.backgroundPositionY = e.clientY/20 - window.innerHeight/20 + "px" ;
+            //document.getElementsByClassName('image')[0].style.backgroundPositionY = e.clientY/20 - window.innerHeight/20 + "px" ;
             for (let i = 0; i < elementsArray.length; i++) {
                 const box = elementsArray[i].getBoundingClientRect()
                 if(elementsArray[i].style.textShadow == "0 0  #000"){
@@ -269,21 +269,23 @@
                 }
 				let xDistance = Math.abs(e.clientX - (((box.left + box.right) / 2)));
 				let yDistance = Math.abs(e.clientY - (((box.top + box.bottom) / 2)));
-				let invertDist = clamp(1-(Math.sqrt(xDistance*xDistance + yDistance*yDistance)/250),0,1);
+				let invertDist = clamp(1-(Math.sqrt(xDistance*xDistance + yDistance*yDistance)/250),0.1,1);
 				let color1 = "rgba(50,50,50,256)";
-				let color2 = "rgba(0,0,0,256)";
+				let color2 = "rgba(0, 40, 58,256)";
 				let interpolate = 10;
 				let sizeMul =  15;
 				let text = "";
+				let dist = invertDist*sizeMul;
 				for (let i = 1; i<=interpolate;i++){
 					console.log(text);
-					text += "0 " + ((invertDist*sizeMul*i)/interpolate).toString() + "px 0 " + interpolateColour(color1,color2,(1*i)/interpolate);
+					text += "0 " + ((dist*i)/interpolate).toString() + "px 0 " + interpolateColour(color1,color2,(1*i)/interpolate);
 					if (i!=interpolate){
 						text += ",";
 					}
 				}
+				text += ", 0 " + (dist).toString() + "px " + (dist*1).toString() + "px rgba(0,0,0,0.5)";
 				elementsArray[i].style.textShadow = text;
-				elementsArray[i].style.translate = "0 -" +(invertDist*sizeMul).toString()+ "px";
+				elementsArray[i].style.translate = "0 -" +(dist).toString()+ "px";
             } 
         });
         
