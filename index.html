@@ -249,18 +249,30 @@
 			const [r1, g1, b1, a1] = deconstructRgba(convertToRgba(colourA))
 			const [r2, g2, b2, a2] = deconstructRgba(convertToRgba(colourB))
 			return formatRbga({
-				r: Math.round((r1 + r2) * progress),
-				g: Math.round((g1 + g2) * progress),
-				b: Math.round((b1 + b2) * progress),
-				a: Math.round((a1 + a2) * progress)
+				r: Math.round((r2* progress + r1*(1-progress)) ),
+				g: Math.round((g2* progress + g1*(1-progress)) ),
+				b: Math.round((b2* progress + b1*(1-progress)) ),
+				a: Math.round((a2* progress + a1*(1-progress)) )
 			})
 		}
         const diag = Math.sqrt(window.innerWidth*window.innerWidth + window.innerHeight*window.innerHeight);
         let elementsArray = document.getElementsByClassName("lettre");
         const clamp = (number, min, max) =>
             Math.max(min, Math.min(number, max));
-
+        let colorArray = []
+        let color1 = "rgba(40,40,40,256)";
+        let color2 = "rgba(0, 40, 58,256)";
+        let interpolate = 4;
+        let sizeMul =  15;
+        let count = 0;
+        window.addEventListener('load', (event) => {
+            for (let i = 0; i<interpolate;i++){
+                colorArray.push(interpolateColour(color1,color2,(1*i)/interpolate));
+            }
+        });
         document.addEventListener('mousemove', (e) => {
+            count++;
+            if (count%10 != 0) return;
             //document.getElementsByClassName('image')[0].style.backgroundPositionY = e.clientY/20 - window.innerHeight/20 + "px" ;
             for (let i = 0; i < elementsArray.length; i++) {
                 const box = elementsArray[i].getBoundingClientRect()
@@ -270,20 +282,15 @@
 				let xDistance = Math.abs(e.clientX - (((box.left + box.right) / 2)));
 				let yDistance = Math.abs(e.clientY - (((box.top + box.bottom) / 2)));
 				let invertDist = clamp(1-(Math.sqrt(xDistance*xDistance + yDistance*yDistance)/250),0.1,1);
-				let color1 = "rgba(50,50,50,256)";
-				let color2 = "rgba(0, 40, 58,256)";
-				let interpolate = 10;
-				let sizeMul =  15;
 				let text = "";
 				let dist = invertDist*sizeMul;
 				for (let i = 1; i<=interpolate;i++){
-					console.log(text);
-					text += "0 " + ((dist*i)/interpolate).toString() + "px 0 " + interpolateColour(color1,color2,(1*i)/interpolate);
+					text += "0 " + ((dist*i)/interpolate).toString() + "px 0 " + colorArray[i-1];
 					if (i!=interpolate){
 						text += ",";
 					}
 				}
-				text += ", 0 " + (dist).toString() + "px " + (dist*1).toString() + "px rgba(0,0,0,0.5)";
+				text += ", 0 " + (dist).toString() + "px " + (dist*0.75).toString() + "px rgba(0,0,0,256)";
 				elementsArray[i].style.textShadow = text;
 				elementsArray[i].style.translate = "0 -" +(dist).toString()+ "px";
             } 
