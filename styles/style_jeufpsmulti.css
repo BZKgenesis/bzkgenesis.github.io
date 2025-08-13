@@ -109,7 +109,7 @@ a::selection{
   text-align: center;
   font-size: 22px;
   padding: 20px;
-  width: 330px;
+  width: 350px;
   transition: all 0.3s;
   cursor: pointer;
   margin: 5px;
@@ -427,4 +427,5 @@ footer{
   }
   
   }
+
 
