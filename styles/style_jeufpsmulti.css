@@ -107,9 +107,9 @@ a::selection{
   border: 3px solid #cccccc;
   color: #eeeeee;
   text-align: center;
-  font-size: 28px;
+  font-size: 22px;
   padding: 20px;
-  width: 300px;
+  width: 330px;
   transition: all 0.3s;
   cursor: pointer;
   margin: 5px;
@@ -427,3 +427,4 @@ footer{
   }
   
   }
+
